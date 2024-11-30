@@ -6,7 +6,7 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-const  sendMail = require('./util/mailConfig');
+var productsRouter = require('./routes/products');
 // var categoryRouter = require('./routes/category');
 // var productRouter = require('./routes/product');
 // var sinhvienRouter = require('./routes/sinhvien');
@@ -15,7 +15,7 @@ var app = express();
 // config mongoose
 const mongoose = require('mongoose');
 // require('./models/categoryModel');
-// require('./models/productModel');
+require('./models/productModel');
 require('./models/userModel');
 
 // require('./models/sinhVienModel');
@@ -38,6 +38,7 @@ mongoose.connect(`${process.env.MongoDB}`)
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/products', productsRouter);
 // app.use('/sinhvien',sinhvienRouter);
 
 // catch 404 and forward to error handler
@@ -57,3 +58,4 @@ app.use(function(err, req, res, next) {
 });
 
 module.exports = app;
+ 

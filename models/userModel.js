@@ -16,5 +16,6 @@ const user = mongoose.model('user', userSchema);
 //             { username: 'john_doe', password: 'password123', role: 'user' },
 //             { username: 'jane_doe', password: 'password456', role: 'admin' },
 //             { username: 'sam_smith', password: 'password789', role: 'user' }]);
-
+// user.insertMany([{ username:"admin1",password:"1234",role:"admin" }]);
 module.exports = mongoose.models.user || mongoose.model('user', user);
+

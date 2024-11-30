@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const ObjectId = Schema.ObjectId;
-const categories = new Schema({
+const categoriesSchema = new Schema({
     id: { type: ObjectId }, // khóa chính
     name: {
         type: String, // kiểu dữ liệu
@@ -13,5 +13,6 @@ const categories = new Schema({
         default: 'No name' // giá trị mặc định
     },
 });
+const categories = mongoose.model('products', categoriesSchema);
 module.exports = mongoose.models.categories || mongoose.model('categories', categories);
 // category -----> categories
