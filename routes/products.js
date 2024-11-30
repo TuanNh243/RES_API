@@ -13,8 +13,8 @@ router.get('/all', async (req, res) => {
           res.status(403).json({"status": 403, "err": err});
         }else{
         //xử lý chức năng tương ứng với API
-          const product = await productModel.find();
-          res.json(product);
+          const list = await productModel.find();
+          res.status(200).json({status:true,message:"Thành công",data:list});
         }
       });
       }else{
